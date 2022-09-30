@@ -12,7 +12,8 @@ public:
 private:
 	sf::RectangleShape ball;
 	sf::Vector2f pos;
-	float velocity = .1;
+	float x_velocity = .2;
+	float y_velocity = .2;
 
 };
 #endif // !BALL_H
