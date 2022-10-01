@@ -7,6 +7,7 @@ class Pong {
 public:
 	Pong();
 	void Run();
+	void drawNet();
 
 private:
 	sf::RenderWindow window;
