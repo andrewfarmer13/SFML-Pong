@@ -38,6 +38,7 @@ void Ball::updateBall(sf::RectangleShape p1, sf::RectangleShape p2) {
 		y_velocity *= -1;
 	}
 	if (ball.getPosition().x < 0 || ball.getPosition().x > 999) {
+		x_velocity *= -1;
 		pos.x = 500;
 		pos.y = 400;
 		ball.setPosition(pos);
