@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "Pong.h"
-#include "Paddle.h"
+
 
 Pong::Pong() {
     window.create(sf::VideoMode(1000, 800), "PONG");
