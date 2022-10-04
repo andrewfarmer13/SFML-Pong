@@ -24,18 +24,34 @@ void Ball::init() {
 
 void Ball::updateBall(sf::RectangleShape p1, sf::RectangleShape p2) {
 
+	checkCollision(p1, p2);
 	pos.x += x_velocity;
 	pos.y += y_velocity;
 	ball.setPosition(pos);
 
-	if (ball.getPosition().x < p1.getPosition().x + 30 && ball.getPosition().x > p1.getPosition().x && ball.getPosition().y < p1.getPosition().y + 150 && ball.getPosition().y > p1.getPosition().y) {
+}
+
+void Ball::checkCollision(sf::RectangleShape p1, sf::RectangleShape p2) {
+
+	//Old code for reference
+	//if (ball.getPosition().x < p1.getPosition().x + 30 && ball.getPosition().x > p1.getPosition().x && ball.getPosition().y < p1.getPosition().y + 150 && ball.getPosition().y > p1.getPosition().y) {
+		//x_velocity *= -1;
+	//}
+		/*if (ball.getPosition().x > p2.getPosition().x && ball.getPosition().x < p2.getPosition().x + 30 && ball.getPosition().y < p2.getPosition().y + 150 && ball.getPosition().y > p2.getPosition().y) {
+		x_velocity *= -1;
+	}*/
+
+
+	//Updated basic collision with paddles using built in functions
+	if (p1.getGlobalBounds().intersects(ball.getGlobalBounds())) {
 		x_velocity *= -1;
 	}
-	if (ball.getPosition().x > p2.getPosition().x && ball.getPosition().x < p2.getPosition().x + 30 && ball.getPosition().y < p2.getPosition().y + 150 && ball.getPosition().y > p2.getPosition().y) {
+	if (p2.getGlobalBounds().intersects(ball.getGlobalBounds())) {
 		x_velocity *= -1;
 	}
 	if (ball.getPosition().y < 0 || ball.getPosition().y > 800) {
 		y_velocity *= -1;
+		pos.y += y_velocity;
 	}
 	if (ball.getPosition().x < 0 || ball.getPosition().x > 999) {
 		x_velocity *= -1;
@@ -43,5 +59,5 @@ void Ball::updateBall(sf::RectangleShape p1, sf::RectangleShape p2) {
 		pos.y = 400;
 		ball.setPosition(pos);
 	}
-	
+
 }
