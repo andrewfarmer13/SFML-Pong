@@ -1,5 +1,6 @@
 #pragma once
 #include "SFML/Graphics.hpp"
+#include "Paddle.h"
 #ifndef BALL_H
 class Ball {
 public:
@@ -14,7 +15,7 @@ private:
 	sf::RectangleShape ball;
 	sf::Vector2f pos;
 	float x_velocity = .3;
-	float y_velocity = 0.05;
+	float y_velocity = 0.3;
 	void checkCollision(sf::RectangleShape, sf::RectangleShape);
 
 };

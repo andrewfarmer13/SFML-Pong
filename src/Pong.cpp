@@ -17,10 +17,8 @@ void Pong::Run() {
         sf::Event event;
         while (window.pollEvent(event))
         {
-            if (event.type == sf::Event::Closed)
+            if (event.type == sf::Event::Closed){
                 window.close();
-            if (event.type == event.KeyPressed) {
-                ball.init();
             }
         }
         pad_1.updatePaddle1();
